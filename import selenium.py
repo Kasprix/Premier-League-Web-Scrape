@@ -8,6 +8,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from webdriver_manager.chrome import ChromeDriverManager
 
+
 from makeDataframe import dataframeFormatter
 from selenium import webdriver
 
@@ -51,7 +52,7 @@ flattened = pd.DataFrame(columns=
 
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
-for x in range(75130,75140):
+for x in range(75130,75133):
 
     while True:
         try:
@@ -64,17 +65,17 @@ for x in range(75130,75140):
             # wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[3]/div/div/div[1]/div[5]/button[1]')))
             # driver.find_element(By.XPATH, '/html/body/div[3]/div/div/div[1]/div[5]/button[1]').click()
 
-            driver.implicitly_wait(5)
-            element = driver.find_element(By.XPATH, '/html/body/div[3]/div/div/div[1]/div[5]/button[1]')
+            driver.implicitly_wait(3)
+            element = driver.find_element(By.XPATH, '//*[@id="onetrust-reject-all-handler"]')
             driver.execute_script("arguments[0].click();", element)
 
-            driver.implicitly_wait(5)
-            wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="mainContent"]/div/section[2]/div[2]/div[2]/div[1]/div/div/ul/li[3]')))
-            driver.find_element(By.XPATH, '//*[@id="mainContent"]/div/section[2]/div[2]/div[2]/div[1]/div/div/ul/li[3]').click()
+            driver.implicitly_wait(3)
+            wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="mainContent"]/div/section[2]/div[2]/div/div[1]/div/div/ul/li[3]')))
+            driver.find_element(By.XPATH, '//*[@id="mainContent"]/div/section[2]/div[2]/div/div[1]/div/div/ul/li[3]').click()
 
             #wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="mainContent"]/div/section[2]/div[2]/div[2]/div[1]/div/div/ul/li[3]'))).click()
-            driver.implicitly_wait(5)
-            tables = driver.find_element(By.XPATH, '//*[@id="mainContent"]/div/section[2]/div[2]/div[2]/div[2]/section[3]/div[2]/div[2]/table/tbody')
+            driver.implicitly_wait(3)
+            tables = driver.find_element(By.XPATH, '//*[@id="mainContent"]/div/section[2]/div[2]/div/div[2]/section[3]/div[2]/div[2]/table')
             print(tables.get_attribute('innerHTML'))
 
 

@@ -6,10 +6,7 @@ def dataframeFormatter(game_id):
 
     data = pd.read_csv('out.csv')
 
-
-
-
-    print("Test")
+    # print("Test")
     print(type(data))
     print(data)
     print(data.loc[0])
